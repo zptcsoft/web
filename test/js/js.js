@@ -44,6 +44,8 @@ oReq.addEventListener("load", function(){
 			var song = document.createElement("div");
 			song.classList.add("song");
 			song.setAttribute("onclick", "show(" + songData[j].song_id + ")");
+			song.setAttribute("ontouchstart", "over()");
+			song.setAttribute("ontouchend", "out()");
 			txtTab.appendChild(song);
 			song.style.backgroundImage = 'url("' + songData[j].pic_big + '")';
 			var dl = document.createElement("dl");
@@ -57,4 +59,10 @@ oReq.addEventListener("load", function(){
 // 链接到指定歌曲
 function show(id) {
 	window.open("http://music.taihe.com/song/" + id, "_blank");
+}
+function over {
+	event.target.classList.add("hover");
+}
+function out {
+	event.target.classList.remove("hover");
 }
